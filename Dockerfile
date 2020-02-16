@@ -99,6 +99,7 @@ USER $USERNAME
 WORKDIR /home/$USERNAME
 RUN rosdep update
 SHELL ["/bin/bash", "-c"]
+RUN sed -i -e 's/api.ignitionfuel.org/api.ignitionrobotics.org/' ~/.ignition/fuel/config.yaml
 RUN echo "export LD_LIBRARY_PATH=/usr/lib/aarch64-linux-gnu/tegra:/usr/lib/aarch64-linux-gnu/tegra-egl:$LD_LIBRARY_PATH" >> ~/.bashrc && \
     echo "export PATH=/usr/local/cuda/bin:$PATH" >> ~/.bashrc && \
     echo "export LD_LIBRARY_PATH=/usr/local/cuda/lib64:$LD_LIBRARY_PATH" >> ~/.bashrc && \
